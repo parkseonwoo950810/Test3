@@ -1,7 +1,9 @@
 package org.example.Test.web;
 
 import org.example.Test.service.posts.PostsService;
-import org.example.Test.web.dto.*;
+import org.example.Test.web.dto.PostsSaveRequestDto;
+import org.example.Test.web.dto.PostsResponseDto;
+import org.example.Test.web.dto.PostsUpdateRequestDto;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;

@@ -1,4 +1,4 @@
-package org.example.Test;
+package org.example.Test.web;
 
 import org.example.Test.web.HelloController;
 import org.junit.Test;

@@ -5,7 +5,6 @@ import org.example.Test.domain.posts.PostsRepository;
 import org.example.Test.web.dto.*;
 
 import lombok.RequiredArgsConstructor;
-import org.example.Test.domain.posts.PostsRepository;
 import org.example.Test.web.dto.PostsSaveRequestDto;
 import org.example.Test.web.dto.PostsUpdateRequestDto;
 import org.springframework.stereotype.Service;
@@ -35,6 +34,13 @@ public class PostsService {
         return id;
     }
 
+    public PostsResponseDto findById(Long id) {
+        Posts entity = postsRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
+
+        return new PostsResponseDto(entity);
+    }
+
     @Transactional
     public void delete (Long id) {
         Posts posts = postsRepository.findById(id)
@@ -43,13 +49,6 @@ public class PostsService {
         postsRepository.delete(posts);
     }
 
-    @Transactional(readOnly = true)
-    public PostsResponseDto findById(Long id) {
-        Posts entity = postsRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
-
-        return new PostsResponseDto(entity);
-    }
 
     /*
     @Transactional(readOnly = true)
