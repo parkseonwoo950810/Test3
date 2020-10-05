@@ -1,6 +1,7 @@
 package org.example.Test.web;
 
 import org.example.Test.service.posts.PostsService;
+import org.example.Test.web.dto.PostsListResponseDto;
 import org.example.Test.web.dto.PostsSaveRequestDto;
 import org.example.Test.web.dto.PostsResponseDto;
 import org.example.Test.web.dto.PostsUpdateRequestDto;
@@ -43,10 +44,10 @@ public class PostsApiController {
         return postsService.findById(id);
     }
 
-    /*
+
     @GetMapping("/api/v1/posts/list")
     public List<PostsListResponseDto> findAll() {
         return postsService.findAllDesc();
     }
-     */
+
 }
