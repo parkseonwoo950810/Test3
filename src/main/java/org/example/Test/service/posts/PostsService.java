@@ -60,12 +60,4 @@ public class PostsService {
                 .collect(Collectors.toList());
     }
 
-    /*임의추가
-    @Transactional(readOnly = true)
-    public List<PostsListResponseDto> retrieve(PostsRetrieveRequestDto requestDto){
-        return postsRepository.findByTitleLikeAndAuthorLike(requestDto).stream()
-                .map(PostsListResponseDto::new)
-                .collect(Collectors.toList());
-    }
-    */
 }

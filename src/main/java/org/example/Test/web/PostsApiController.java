@@ -48,11 +48,6 @@ public class PostsApiController {
         return postsService.findAllDesc();
     }
 
-    /*임의추가
-    @GetMapping("/api/v1/posts/")
-    public List<PostsListResponseDto> retrieve(@RequestBody PostsRetrieveRequestDto requestDto) {
-        return postsService.retrieve(requestDto);
-    }
-    */
+    //임의추가삭제
 
 }
