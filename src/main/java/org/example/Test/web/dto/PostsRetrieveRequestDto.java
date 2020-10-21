@@ -10,6 +10,7 @@ public class PostsRetrieveRequestDto {
     private String title;
     private String author;
 
+
     @Builder
     public PostsRetrieveRequestDto(String title, String author) {
         this.title = title;
