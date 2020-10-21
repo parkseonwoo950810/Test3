@@ -41,6 +41,9 @@ public class PostsService {
         return new PostsResponseDto(entity);
     }
 
+
+
+
     @Transactional
     public void delete (Long id) {
         Posts posts = postsRepository.findById(id)
@@ -53,6 +56,14 @@ public class PostsService {
     @Transactional(readOnly = true)
     public List<PostsListResponseDto> findAllDesc() {
         return postsRepository.findAllDesc().stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
+    }
+
+    /*임의추가*/
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> retrieve(PostsRetrieveRequestDto requestDto){
+        return postsRepository.findByTitleLikeAndAuthorLike(requestDto).stream()
                 .map(PostsListResponseDto::new)
                 .collect(Collectors.toList());
     }

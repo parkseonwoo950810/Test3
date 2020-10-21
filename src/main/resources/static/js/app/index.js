@@ -12,6 +12,10 @@ var main = {
         $('#btn-delete').on('click', function () {
             _this.delete();
         });
+
+        $('#btn-retireve').on('click', function () {
+            _this.retrieve();
+        });
     },
     save : function () {
         var data = {
@@ -66,6 +70,27 @@ var main = {
             contentType:'application/json; charset=utf-8'
         }).done(function() {
             alert('글이 삭제되었습니다.');
+            window.location.href = '/';
+        }).fail(function (error) {
+            alert(JSON.stringify(error));
+        });
+    },
+
+    /*임의추가*/
+    retrieve : function () {
+        var data = {
+            title: $('#title').val(),
+            author: $('#author').val()
+        }
+
+        $.ajax({
+            type: 'GET',
+            url: '/api/v1/posts/',
+            dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data)
+        }).done(function() {
+            //alert('조회 되었습니다.');
             window.location.href = '/';
         }).fail(function (error) {
             alert(JSON.stringify(error));

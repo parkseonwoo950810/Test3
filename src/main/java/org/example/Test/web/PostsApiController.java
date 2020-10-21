@@ -1,10 +1,7 @@
 package org.example.Test.web;
 
 import org.example.Test.service.posts.PostsService;
-import org.example.Test.web.dto.PostsListResponseDto;
-import org.example.Test.web.dto.PostsSaveRequestDto;
-import org.example.Test.web.dto.PostsResponseDto;
-import org.example.Test.web.dto.PostsUpdateRequestDto;
+import org.example.Test.web.dto.*;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -28,6 +25,7 @@ public class PostsApiController {
         return postsService.save(requestDto);
     }
 
+
     @PutMapping("/api/v1/posts/{id}")
     public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto requestDto) {
         return postsService.update(id, requestDto);
@@ -49,5 +47,12 @@ public class PostsApiController {
     public List<PostsListResponseDto> findAll() {
         return postsService.findAllDesc();
     }
+
+    /*임의추가*/
+    @GetMapping("/api/v1/posts/")
+    public List<PostsListResponseDto> retrieve(@RequestBody PostsRetrieveRequestDto requestDto) {
+        return postsService.retrieve(requestDto);
+    }
+
 
 }
